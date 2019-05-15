@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import BaseResource from '../resources'
+import BaseResource from 'rest-resource'
 import ResourceForm from './ResourceForm.vue'
 import { BaseFieldSet } from '../fieldsets'
 

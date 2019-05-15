@@ -1,6 +1,6 @@
 import Vue, { VueConstructor } from 'vue'
 import Router from 'vue-router'
-import NavbarComponent from './components/NavBar.vue'
+import NavbarComponent from './components_for_demo/NavBar.vue'
 import ViewerComponent from './components/ResourceViewer.vue'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'

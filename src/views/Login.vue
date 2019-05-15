@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import LoginForm from '@/components/LoginForm.vue'
+import LoginForm from '@/components_for_demo/LoginForm.vue'
 
 @Component({
     components: {

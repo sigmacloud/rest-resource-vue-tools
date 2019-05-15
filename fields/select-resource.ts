@@ -1,16 +1,17 @@
 import { ValidationError, BaseField } from './index'
-import { validationErrorsMixin } from '@/mixins'
-import ResourceFieldSelect from '@/components/ResourceFieldSelect.vue'
+import { validationErrorsMixin } from '../mixins'
+// @ts-ignore
+import ResourceFieldSelect from '../components/ResourceFieldSelect.vue'
 // @ts-ignore
 import { OPTIONS_DEFAULT, ViewerOptions } from '@/components/ResourceViewer.vue'
-import store from '@/store'
-import BaseResource from '@/resources';
+import BaseResource from 'rest-resource';
 
 export interface SelectResourceOptions {
     required?: boolean,
     viewerOptions?: ViewerOptions
     allowCreate?: boolean
 }
+
 export class SelectResource extends BaseField {
     component = ResourceFieldSelect.extend({
         mixins: [validationErrorsMixin]
@@ -46,27 +47,7 @@ export class SelectResource extends BaseField {
     }
 
     onCreate(attributes: any) {
-        let component = this.boundComponent
-        let Ctor: typeof BaseResource = this.props.resourceClass
-        let resource = new Ctor(attributes)
-        let FieldSetClass = Ctor.defaultFieldSetClass
-        let viewerOptions: ViewerOptions = {
-            width: 480,
-            height: 480,
-            onSave() {
-                // @ts-ignore
-                component.setSelected(resource)
-                this.close()
-            }
-        }
-        
-        if(FieldSetClass && component) {
-            store.commit('viewResource', {
-                resource,
-                fieldsetClass: FieldSetClass,
-                options: viewerOptions,
-            })
-        }
+        // Do nothing for now
     }
 }
 

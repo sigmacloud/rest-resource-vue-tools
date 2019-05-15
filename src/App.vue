@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { setConfig, getConfig } from '@/config'
-import LoginForm from '@/components/LoginForm.vue'
+import LoginForm from '@/components_for_demo/LoginForm.vue'
 import Modal from '@/components/Modal.vue'
 
 @Component({

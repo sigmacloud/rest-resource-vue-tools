@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { getConfig } from '../config'
-import Loading from './Loading.vue'
+import Loading from '@/components/Loading.vue'
 
 @Component({
     components: {

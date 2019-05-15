@@ -1,5 +1,5 @@
 import { BaseField, ValidationError } from './index'
-import FieldCheckbox from '@/components/FieldCheckbox.vue'
+import FieldCheckbox from '../components/FieldCheckbox.vue'
 
 export class BooleanField extends BaseField {
     component = FieldCheckbox

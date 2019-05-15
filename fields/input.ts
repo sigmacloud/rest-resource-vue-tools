@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { BaseField, ValidationError } from './index'
-import FieldInput from '@/components/FieldInput.vue'
+import FieldInput from '../components/FieldInput.vue'
 
 export class InputField extends BaseField {
     component = FieldInput

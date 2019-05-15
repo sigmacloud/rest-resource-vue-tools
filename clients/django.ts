@@ -3,15 +3,14 @@ import { parse } from 'url'
 import { ResourceLike, ResourceClassLike } from 'rest-resource'
 import { ValidationError } from 'rest-resource/src/exceptions'
 import { JWTBearerClient, ResourceResponse, ExtractorFunction, AxiosError, AxiosResponse, RequestConfig } from 'rest-resource/src/client'
-import { logDebug } from '@/logger'
-import config from '@/config'
+import { logDebug } from '../logger'
 
 // Custom client
 export class Client extends JWTBearerClient {
-    static TOKEN_RENEW_PATH = config.TOKEN_RENEW_PATH
-    static TOKEN_RENEW_ENABLE = config.TOKEN_RENEW_ENABLE
-    static TOKEN_RENEW_THRESHOLD = config.TOKEN_RENEW_THRESHOLD
-    static PATH_PASSTHROUGH = config.TOKEN_RENEW_EXEMPT_PATHS
+    static TOKEN_RENEW_ENABLE = true
+    static TOKEN_RENEW_PATH = '/auth/renew'
+    static TOKEN_RENEW_THRESHOLD = 300
+    static PATH_PASSTHROUGH = ['/auth', '/auth/renew']
     refreshingUserToken: boolean = false
 
     constructor(baseURL: string, token: string = '', options: RequestConfig = {}) {
@@ -89,13 +88,6 @@ export class Client extends JWTBearerClient {
                     const router = require('@/router').default
                     router.push({ path: `/login?redirect=${router.currentRoute.fullPath}` })
                 }
-                // Then show a message
-                Vue.notify({
-                    group: 'auth',
-                    type: 'error',
-                    title: 'Authentication Error',
-                    text: 'Your session has expired, please log in again'
-                })
                 // User errors -- typically we'll want to throw a ValidationError if we know the field name
                 if(Object.keys(response.data).length > 0 && !Array.isArray(response.data)) {
                     for(let errKey in response.data) {
@@ -110,12 +102,6 @@ export class Client extends JWTBearerClient {
                     }
                 }
             }
-        } else if(err.message) {
-            Vue.notify({
-                type: 'error',
-                title: 'Network Error',
-                text: 'Request failed: Unknown reason'
-            })
         }
         
         throw err

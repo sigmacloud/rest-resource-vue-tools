@@ -3,7 +3,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { getConfig } from '@/config'
 import { hostnameToName } from '@/util'
 import Modal from '@/components/Modal.vue'
-import LoginForm from '@/components/LoginForm.vue'
+import LoginForm from '@/components_for_demo/LoginForm.vue'
 
 const makeLink = (name: any, path: any) => ({ name, path })
 

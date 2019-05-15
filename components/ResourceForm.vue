@@ -6,7 +6,7 @@ import { ValidationError } from 'rest-resource/src/exceptions'
 import { logDebug, logTrace } from '../logger'
 import { BaseFieldSet } from '../fieldsets'
 import { BaseField } from '../fields'
-import BaseResource from '../resources'
+import BaseResource from 'rest-resource'
 const assert = require('assert')
 
 @Component({
@@ -126,8 +126,7 @@ export default class ResourceForm extends Vue {
     }
 
     getFieldSetClass() {
-        let Ctor = this.$data.instances[0].getConstructor() as typeof BaseResource
-        return this.$props.fieldsetClass || Ctor.defaultFieldSetClass
+        return this.$props.fieldsetClass
     }
 
     onCancel() {
