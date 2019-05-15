@@ -2,8 +2,8 @@
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Resource from 'rest-resource'
 import { ResourceLike, ResourceClassLike, ResourceClassDict } from 'rest-resource/types'
-import LoadingCells from '@/components/LoadingCells.vue'
-import Loading from '@/components/Loading.vue'
+import LoadingCells from './LoadingCells.vue'
+import Loading from './Loading.vue'
 const { uniqBy } = require('lodash')
 const assert = require('assert')
 

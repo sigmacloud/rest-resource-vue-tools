@@ -3,10 +3,10 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Resource from 'rest-resource'
 import { ResourceResponse } from 'rest-resource/types/client'
 import { ValidationError } from 'rest-resource/src/exceptions'
-import { logDebug, logTrace } from '@/logger'
-import { BaseFieldSet } from '@/fieldsets'
-import { BaseField } from '@/fields'
-import BaseResource from '@/resources'
+import { logDebug, logTrace } from '../logger'
+import { BaseFieldSet } from '../fieldsets'
+import { BaseField } from '../fields'
+import BaseResource from '../resources'
 const assert = require('assert')
 
 @Component({

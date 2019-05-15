@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
-import { validationErrorsMixin } from '@/mixins'
+import { validationErrorsMixin } from '../mixins'
 const FormSelectComponent = require('bootstrap-vue/es/components/form-select/form-select').default
 
 /**

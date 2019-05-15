@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
-import BaseResource from '@/resources'
+import BaseResource from 'rest-resource'
 
 @Component({
     components: {},

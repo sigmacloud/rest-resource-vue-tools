@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
-import { validationErrorsMixin } from '@/mixins'
+import { validationErrorsMixin } from '../mixins'
 const FormCheckboxComponent = require('bootstrap-vue/es/components/form-checkbox/form-checkbox').default
 
 /**

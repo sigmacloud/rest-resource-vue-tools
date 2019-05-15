@@ -1,8 +1,8 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import BaseResource from '@/resources'
-import ResourceForm from '@/components/ResourceForm.vue'
-import { BaseFieldSet } from '@/fieldsets'
+import BaseResource from '../resources'
+import ResourceForm from './ResourceForm.vue'
+import { BaseFieldSet } from '../fieldsets'
 
 export interface ViewerOptions {
     onSave?: (this: ViewerItem, resource: BaseResource) => void
