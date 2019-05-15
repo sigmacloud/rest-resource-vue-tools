@@ -20,11 +20,6 @@ import MyResource from './resources'
 export default {
     components: {
         ResourceList
-    },
-    computed: {
-        getResourceClass() {
-            return 
-        }
     }
 }
 </script>
