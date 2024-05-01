@@ -1,0 +1,37 @@
+name: Backup this repo to S3 bucket [INFRA-867]
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+      - main
+      - develop
+      - production
+      - release/*
+  push:
+    branches:
+      - master
+      - main
+      - develop
+      - production
+      - release/*
+    
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.INFRA867_BACKUPS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.INFRA867_BACKUPS_SECRET_ACCESS_KEY_ID }}
+          aws-region: us-west-1
+
+      - name: Sync S3 Bucket
+        run: |
+          aws s3 sync . s3://revolutiones-github-cicd-backups/${{github.repository}} 
